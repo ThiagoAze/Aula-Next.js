@@ -1,5 +1,6 @@
-export default function Gerenciar(){
+
+export default function Gerenciar() {
     return(
-        <h1>Gerenciar Voluntários</h1>
+        <h1>Gerenciar Voluntarios</h1>
     )
 }

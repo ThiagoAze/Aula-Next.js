@@ -1,4 +1,7 @@
+import StyledComponentsRegistry from "@/lib/registry";
+import { GlobalStyle } from "@/styles/global";
 import type { Metadata } from "next";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,9 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body>
-        {children}
+    <html lang="en">
+      <body suppressHydrationWarning={true}>
+        <StyledComponentsRegistry>
+          <GlobalStyle />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

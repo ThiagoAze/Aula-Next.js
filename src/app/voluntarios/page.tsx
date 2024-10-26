@@ -1,5 +1,6 @@
-export default function Voluntarios(){
+
+export default function Voluntarios() {
     return(
-        <h1>Voluntários</h1>
+        <h1>Voluntarios</h1>
     )
 }
