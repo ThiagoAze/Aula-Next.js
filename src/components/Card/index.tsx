@@ -2,23 +2,26 @@
 
 import Image from "next/image"
 import { Button, CardBody, TextButton, TextPromo, Title, TitlePreco } from "./style"
+import { IProdutos } from "@/interfaces"
+import { useRouter } from "next/navigation"
 
-interface IProdutos{
-    id: number,
-    id_categoria: number,
-    nome: string,
-    valor: number,
-    promo: number,
-    imagem: string
-}
-export const Card = () => {
+export const Card = (props: IProdutos) => {
+
+    const router = useRouter()
+
     return(
         <CardBody>
-            <Image src={''} alt="Pendrive"/>
-            <Title>Pendrive</Title>
-            <TitlePreco>90.90</TitlePreco>
-            <TextPromo>79.90</TextPromo>
-            <Button>
+            <Image src={"https://raw.githubusercontent.com/profchines/Imagens/refs/heads/main/Imagens/" + props.imagemg}  
+                alt={props.nome}
+                width={250} 
+                height={200}
+            />
+            <Title>{props.nome}</Title>
+            <TitlePreco>{props.valor}</TitlePreco>
+            <TextPromo>{props.promo}</TextPromo>
+            <Button onClick={() => {
+                router.push('/produto/'+ props.id)
+            }}>
                 <TextButton>Detalhes</TextButton>
             </Button>
         </CardBody>

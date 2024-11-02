@@ -15,7 +15,7 @@ export const Menu = () => {
 
     // Busca pelas categorias ao iniciar a página
     useEffect(() => {
-        axios.get('http://localhost:3001/categorias')
+        axios.get(process.env.NEXT_PUBLIC_API_URL +'/categorias')
         .then((res) => {
             setCategorias(res.data) // Resposta do back-end
         })
@@ -42,7 +42,7 @@ export const Menu = () => {
                             {
                                 categorias.map((categoria) => (                                    
                                     <NavBarLink key={categoria.id} href={`/categoria/${categoria.id}`}>
-                                        {categoria.nome}
+                                        {categoria.nome} 
                                     </NavBarLink>
                                 ))
                             }
