@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react"
 import { LeftContainer, NavBarContainer, NavBarLink, NavbarInnerContainer, NavbarLinkContainer, NavbarLinkExtended, RightContainer } from "./style"
 import axios, { AxiosError } from "axios"
-import Image from "next/image"
 
 interface ICategoria {
     id: number,
@@ -37,11 +36,13 @@ export const Menu = () => {
                             <NavBarLink href={"/"} >
                                 Home
                             </NavBarLink>
-
                             
                             {
                                 categorias.map((categoria) => (                                    
-                                    <NavBarLink key={categoria.id} href={`/categoria/${categoria.id}`}>
+                                    <NavBarLink 
+                                        key={categoria.id} 
+                                        href={`/categorias/${categoria.id}`}
+                                    >
                                         {categoria.nome} 
                                     </NavBarLink>
                                 ))

@@ -7,6 +7,10 @@
         {
             "id": 2,
             "nome": "Mouse"
+        },
+        {
+          "id": 3,
+          "nome": "Monitor"
         }
     ],
     "produtos": [
