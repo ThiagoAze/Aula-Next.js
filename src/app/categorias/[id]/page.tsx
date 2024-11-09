@@ -5,6 +5,7 @@ import { IProdutos } from "@/interfaces";
 import axios from "axios";
 import { useEffect, useState } from "react"
 
+// Tipagem de dados recebidos de categoria
 interface ICategoria {
     id: string;
     nome: string;
@@ -12,9 +13,10 @@ interface ICategoria {
 export default function Categorias(
     { params }: { params: { id: string } }
 ) {
-    // Armazena os dados dos produtos tipados
+    // Armazena a lista de produtos
     const [produtos, setProdutos] = useState<Array<IProdutos>>([])
-    const [categorias, setCategorias] = useState<Array<ICategoria>>()
+    // Armazena os dados de categoria atual
+    const [categorias, setCategorias] = useState<ICategoria>()
 
     useEffect(() => {
         // Busca produtos pelo ID da categoria da URL
@@ -23,8 +25,7 @@ export default function Categorias(
             params: {id_categoria: params.id}
         })
             .then((res) => {
-                // Armazena no array produtos a resposta
-                console.log(res)
+                // Atualiza o array produtos na resposta
                 setProdutos(res.data)
             })
             .catch((err) => {
@@ -45,7 +46,6 @@ export default function Categorias(
         <>
             <Menu />
             <h1>Categoria - {categorias ? categorias.nome : "Carregando..."}</h1>
-            
             
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
                 {/* Mapeia cada produto e renderiza o card para cada um se existir */}
