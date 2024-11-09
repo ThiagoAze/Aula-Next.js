@@ -4,13 +4,13 @@ import { IProdutos } from "@/interfaces";
 import axios from "axios";
 
 // Tipando a resposta do axios
-interface d {
+interface IReqProduto {
     data: Array<IProdutos>
 }
 export default async function Home() {
 
     // Requisição para guardar os produtos
-    const {data}: d = await axios.get(process.env.NEXT_PUBLIC_API_URL +'/produtos')
+    const {data}: IReqProduto = await axios.get(process.env.NEXT_PUBLIC_API_URL +'/produtos')
     // Como estava: 'http://localhost:3001/produtos'
 
     return(
